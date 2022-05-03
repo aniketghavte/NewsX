@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">NewsX</string>
+    <string name="api_key">7949711c04ce490ca9cc64d2b212b2fc</string>
+    <string name="technology">technology</string>
+    <string name="sports">sports</string>
+    <string name="science">science</string>
+    <string name="health">health</string>
+    <string name="general">general</string>
+    <string name="entertainment">entertainment</string>
+    <string name="business">business</string>
+    <string name="newsx">NewsX</string>
+</resources>
