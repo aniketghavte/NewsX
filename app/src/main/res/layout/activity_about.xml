@@ -19,7 +19,7 @@
             android:layout_height="154dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:src="@drawable/profile"
+            android:src="@drawable/profile2"
 
             />
 

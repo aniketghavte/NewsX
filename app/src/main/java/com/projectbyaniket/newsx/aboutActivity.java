@@ -2,7 +2,9 @@ package com.projectbyaniket.newsx;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,5 +24,7 @@ public class aboutActivity extends AppCompatActivity {
 
         about.setText("         Hi, NewsX is an Android Project created by me as Above I am an IT Student at DIT ,Pune. In NewsX you " +
                 "will get all Trusted News From a well Know API source For any Query you can contact Me.." );
+
+
     }
 }

@@ -19,7 +19,7 @@ public class DetailsActivity extends AppCompatActivity {
     NewsHeadlines headlines;
     String url;
     TextView txt_title,txt_time,txt_author,txt_detail,txt_content;
-    ImageView img_news;
+    ImageView img_news , sendBtn;
     Button readNewsBt;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class DetailsActivity extends AppCompatActivity {
         txt_title = findViewById(R.id.text_Detail_title);
         img_news = findViewById(R.id.img_detail_news);
         readNewsBt = findViewById(R.id.btnReadNews);
+        sendBtn = findViewById(R.id.idSendNews);
 
         headlines = (NewsHeadlines) getIntent().getSerializableExtra("data");
 
@@ -44,6 +45,19 @@ public class DetailsActivity extends AppCompatActivity {
         url= headlines.getUrl();
 
         Picasso.get().load(headlines.getUrlToImage()).into(img_news);
+
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_SUBJECT, "Sharing URL");
+                i.putExtra(Intent.EXTRA_TEXT, url);
+                startActivity(Intent.createChooser(i, "Share URL"));
+
+            }
+        });
 
         readNewsBt.setOnClickListener(new View.OnClickListener() {
             @Override

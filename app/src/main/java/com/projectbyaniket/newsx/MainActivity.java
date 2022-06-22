@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
     @Override
     public void onCategoryClick(int position) {
         String category = categoryRVModelArrayList.get(position).getCategory();
-        dialog.setTitle("Fetching news of"+ category);
+        dialog.setTitle("Fetching news of "+ category);
         dialog.show();
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener,category,null);
