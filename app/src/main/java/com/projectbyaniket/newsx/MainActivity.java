@@ -1,6 +1,5 @@
 package com.projectbyaniket.newsx;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
@@ -11,13 +10,10 @@ import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
+import com.projectbyaniket.newsx.Models.CategoryRVModel;
 import com.projectbyaniket.newsx.Models.NewsApiResponse;
 import com.projectbyaniket.newsx.Models.NewsHeadlines;
 
@@ -45,6 +41,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
         toolbar.inflateMenu(R.menu.options_menu);
         Intent i = new Intent(this,aboutActivity.class);
         Intent i1 = new Intent(this,SettingsActivity.class);
+
+        /*
+         This code is for operations for setting , refreshing news , about Activity and exit Application
+         */
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -65,12 +65,16 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
             }
         });
 
+        //
         categoryRVModelArrayList = new ArrayList<>();
 
         //newsRVAdapter = new NewsRVAdapter(articlesArrayList, this);
         categoryRVAdapter = new CategoryRVAdapter(categoryRVModelArrayList, this::onCategoryClick,this);
         CategoryRV.setAdapter(categoryRVAdapter);
 
+        /*
+
+         */
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -94,10 +98,17 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
         getCategories();
         RequestManager manager = new RequestManager(this);
         manager.getNewsHeadlines(listener,"general",null);
+
     }
 
 
 
+    /*
+           This Function is call when On create method is Called(means when App starts)
+           in this As we created Arraylist of category RvModel we add Category in this Arraylist which further Implements in Recycler view of CategoryRVAdater
+
+           This funciton sets Category and image gor category bg which
+     */
     @SuppressLint("NotifyDataSetChanged")
     private void getCategories(){
         categoryRVModelArrayList.add(new CategoryRVModel("General","https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Z2VuZXJhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"));
@@ -111,6 +122,10 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
 
     }
 
+
+            /*
+
+                */
     private final OnFetchDataListener<NewsApiResponse> listener = new OnFetchDataListener<NewsApiResponse>() {
         @Override
         public void onFetchData(List<NewsHeadlines> list, String massage) {
@@ -127,6 +142,11 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
             Toast.makeText(MainActivity.this, "An Error Occured!!!", Toast.LENGTH_SHORT).show();
         }
     };
+
+    /*
+           THis function also called on On create method and this sets Arraylist of NewsHeadlines which we loaded with
+                articals from Api To the Custom Adapter for News
+     */
 
     private void showNews(List<NewsHeadlines> list) {
         recyclerView = findViewById(R.id.recycler_main);

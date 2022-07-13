@@ -22,6 +22,7 @@ public class RequestManager {
             .baseUrl("https://newsapi.org/v2/")
             .addConverterFactory(GsonConverterFactory.create())
             .build();
+
     public void getNewsHeadlines(OnFetchDataListener listener ,String category ,String query){
         CallNewsApi callNewsApi = retrofit.create(CallNewsApi.class);
         Call<NewsApiResponse> call = callNewsApi.callHeadlines("in",category,query,context.getString(R.string.api_key));

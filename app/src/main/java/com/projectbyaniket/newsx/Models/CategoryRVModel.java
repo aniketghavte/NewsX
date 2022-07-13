@@ -1,4 +1,4 @@
-package com.projectbyaniket.newsx;
+package com.projectbyaniket.newsx.Models;
 
 public class CategoryRVModel {
     private String category;
