@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener ,C
                 dialog.setTitle("Fetching news articals of" + query);
                 dialog.show();
                 RequestManager manager = new RequestManager(MainActivity.this);
-                manager.getNewsHeadlines(listener,"general",null);
+                manager.getNewsHeadlines(listener,"general",query);
                 return true;
             }
 
