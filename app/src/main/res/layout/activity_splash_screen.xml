@@ -45,6 +45,7 @@
             android:text="Aniket Ghavte"
             android:gravity="center"
             android:textColor="@color/yellow"
+            android:layout_marginBottom="20dp"
             android:textSize="20dp"/>
 
 

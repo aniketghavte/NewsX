@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class aboutActivity extends AppCompatActivity {
 
-    ImageView imageView;
+    TextView imageView;
     TextView about,contact;
 
     @Override
@@ -22,7 +22,7 @@ public class aboutActivity extends AppCompatActivity {
         contact = findViewById(R.id.contact);
 
 
-        about.setText("         Hi, NewsX is an Android Project created by me as Above I am an IT Student at DIT ,Pune. In NewsX you " +
+        about.setText("         Hi, NewsX is an Android Project created by us as Above We are IT Student at DIT ,Pune. In NewsX you " +
                 "will get all Trusted News From a well Know API source For any Query you can contact Me.." );
 
 
